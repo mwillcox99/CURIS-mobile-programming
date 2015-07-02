@@ -1,0 +1,83 @@
+/* Referenced interact.js-master/demo/css/dropzones.css */
+
+body {font-family: Helvetica, Arial, sans-serif; font-size: 30px}
+
+div {border-radius: 10px;}
+
+.block-bank-wrapper {
+    position: absolute;
+    top: 50px;
+}
+
+.dropzone-wrapper {
+    position: relative;
+    top: 700px;
+    left: 0;
+    right: 0;
+}
+
+.dropzone {
+    position: absolute;
+    z-index: -1;
+    width: 60px;
+    padding: 3em;
+    color: #666;
+    text-align: center;
+    float: center;
+    background: #ccc;
+    border: 15px dashed transparent;
+}
+#block-bank {font-size: 30px; margin-left: 20px;}
+
+#if {font-size: 50px; margin-left: 20px}
+
+#block1 {left: 50px;}
+
+#operator {left: 350px;}
+
+#block2 {left: 650px;}
+
+#then {
+    position: absolute;
+    top: 350px;
+    margin-left: 20px;
+    font-size: 50px;
+}
+
+#block3 {
+    position: absolute;
+    top: 420px;
+    left: 50px;
+}
+
+.dropzone.-drop-possible {
+    border-color: #666;
+}
+
+.dropzone.-drop-over {
+    background: #666;
+    color: #fff;
+}
+
+.draggable {
+    position: absolute;
+    width: 60px;
+    margin: 1em;
+    padding: 3em;
+    background-color: #00D6D4;
+    color: white;
+    text-align: center;
+}
+
+#drag1 {margin-left: 50px;}
+#drag2 {margin-left: 350px}
+#drag3 {margin-left: 650px;}
+#drag4 {margin-left: 50px; margin-top: 300px;}
+
+.draggable.-drop-possible {
+    background-color: #33D633;
+}
+
+.draggable.-drop-over {
+    background-color: #CF2261;
+}
