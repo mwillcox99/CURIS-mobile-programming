@@ -73,8 +73,20 @@ interact('.draggable').draggable({
   onmove: function(event) {
     return dragMove(event);
   },
+  restrict: {
+    restriction: 'body',
+    endOnly: true,
+    elementRect: {
+      top: 0,
+      left: 0,
+      bottom: 1,
+      right: 1
+    }
+  },
   axis: 'xy',
   max: Infinity,
   maxPerElement: 2,
   inertia: true
 }, setupDropzone('.dropzone', '.draggable'));
+
+interact('.body');

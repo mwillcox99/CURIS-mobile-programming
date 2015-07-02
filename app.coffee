@@ -2,6 +2,13 @@
 # Referenced interact.js-master/demo/js/dropzones.js
 #
 
+# $ ->
+# 	for draggable, i in $ '.draggable'
+# 		$(draggable).attr 'data-x', i*240 + 50
+# 		$(draggable).attr 'data-y', 100
+# 		# console.log draggable
+# 		console.log $(draggable).data 'y'
+
 dragMove = (event) ->
 	target = event.target
 	# Change position
@@ -75,12 +82,20 @@ setupDropzone = (el, accept) ->
 interact('.draggable').draggable
 	onmove: (event) ->
 		dragMove event
-	# TODO - restrict?
+	restrict:
+		restriction: 'body'
+		endOnly: true
+		elementRect:
+			top: 0
+			left: 0
+			bottom: 1
+			right: 1
 	axis: 'xy'
 	max: Infinity
 	maxPerElement: 2
 	inertia: true
 
-	# setup drop areas
-	# dropzone accepts if-block
+	# dropzone class can accept blocks draggable class
 	setupDropzone '.dropzone', '.draggable'
+
+interact('.body')

@@ -1,6 +1,11 @@
 /* Referenced interact.js-master/demo/css/dropzones.css */
 
-body {font-family: Helvetica, Arial, sans-serif; font-size: 30px}
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    width: 970px;
+    height: 1730px;
+}
 
 div {border-radius: 10px;}
 
