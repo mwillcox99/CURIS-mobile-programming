@@ -39,7 +39,7 @@ setupDropzone = function(el, accept) {
     }
   }).on('dropactivate', function(event) {
     var active;
-    event.relatedTarget.blockName = event.relatedTarget.textContent;
+    event.target.dropzoneName = event.target.textContent;
     active = event.target.getAttribute('active') | 0;
     if (active === 0) {
       addClass(event.target, '-drop-possible');
@@ -52,7 +52,7 @@ setupDropzone = function(el, accept) {
     active = event.target.getAttribute('active') | 0;
     if (active === 1) {
       removeClass(event.target, '-drop-possible');
-      event.target.textContent = 'Dropzone';
+      event.target.textContent = event.target.dropzoneName;
       event.target.setAttribute('active', active - 1);
     }
   }).on('dragenter', function(event) {
@@ -73,6 +73,7 @@ interact('.draggable').draggable({
   onmove: function(event) {
     return dragMove(event);
   },
+  inertia: true,
   restrict: {
     restriction: 'body',
     endOnly: true,
@@ -85,8 +86,36 @@ interact('.draggable').draggable({
   },
   axis: 'xy',
   max: Infinity,
-  maxPerElement: 2,
-  inertia: true
+  maxPerElement: 2
 }, setupDropzone('.dropzone', '.draggable'));
 
-interact('.body');
+interact('#drag1').draggable({
+  snap: {
+    targets: {
+      x: 100,
+      y: 100
+    },
+    range: Infinity,
+    relativePoints: [
+      {
+        x: 0,
+        y: 0
+      }
+    ]
+  },
+  inertia: true,
+  restrict: {
+    restriction: 'body'
+  },
+  elementRect: {
+    top: 0,
+    left: 0,
+    bottom: 1,
+    right: 1
+  },
+  endOnly: true
+}).on('dragmove', function(event) {
+  x += event.dx;
+  y += event.dy;
+  return event.target.style.webkitTransform = event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+});
