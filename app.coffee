@@ -78,49 +78,71 @@ setupDropzone = (el, accept) ->
 		return
 	return
 
-# target elements with the "draggable" class
-interact('.draggable').draggable
-	onmove: (event) ->
-		dragMove event
-	inertia: true
-	restrict:
-		restriction: 'body'
-		endOnly: true
-		elementRect:
-			top: 0
-			left: 0
-			bottom: 1
-			right: 1
-	axis: 'xy'
-	max: Infinity
-	maxPerElement: 2
+weatherIcons = ["wi wi-umbrella", "wi wi-cloudy", "wi wi-day-sunny"]
+count = 0
+	
+interact('#drag2')
+	.on 'tap', (event) ->
+		console.log 'Changed icon'
+		icon = weatherIcons[count]
+		$("#weather").removeClass weatherIcons[count-1]
+		$("#weather").addClass icon
+		count++;
+		if count is weatherIcons.length then count=0
+		return
 
-	# dropzone class can accept blocks draggable class
-	setupDropzone '.dropzone', '.draggable'
+#target elements with the "draggable" class
+ interact('.draggable').draggable
+ 	onmove: (event) ->
+ 		dragMove event
+ 	inertia: true
+ 	restrict:
+ 		restriction: 'body'
+ 		endOnly: true
+ 		elementRect:
+ 			top: 0
+ 			left: 0
+ 			bottom: 1
+ 			right: 1
+ 	axis: 'xy'
+ 	max: Infinity
+ 	maxPerElement: 2
 
-interact('#drag1').draggable(
-  snap:
-    targets:
-      x:100
-      y:100
-    range: Infinity
-    relativePoints:[{
-      x: 0
-      y: 0
-    }]
-  inertia: true
-  restrict:
-    restriction: 'body'
-  elementRect:
-    top: 0
-    left: 0
-    bottom: 1
-    right: 1
-  endOnly: true).on 'dragmove', (event) ->
-    x += event.dx
-    y += event.dy
-    event.target.style.webkitTransform = event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+ 	# dropzone class can accept blocks draggable class
+ 	setupDropzone '.dropzone', '.draggable'
 
+ interact('#drag1').draggable(
+   snap:
+     targets:
+       x:100
+       y:100
+     range: Infinity
+     relativePoints:[{
+       x: 0
+       y: 0
+     }]
+   inertia: true
+   restrict:
+     restriction: 'body'
+   elementRect:
+     top: 0
+     left: 0
+     bottom: 1
+     right: 1
+   endOnly: true).on 'dragmove', (event) ->
+     x += event.dx
+     y += event.dy
+     event.target.style.webkitTransform = event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
 
-
-
+# weatherIcons = ["wi wi-umbrella", "wi wi-cloudy", "wi wi-day-sunny"]
+# count = 0
+###$("#drag2").click ->
+	alert "SDF "
+	icon = weatherIcons[count]
+	console.log icon
+	$("#weather").removeClass weatherIcons[count-1]
+	$("#weather").addClass icon
+	count++;
+	if count is weatherIcons.length then count=0
+	return###
+	

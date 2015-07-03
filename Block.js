@@ -44,6 +44,8 @@ Block = (function() {
       case this.MY_AREA:
         createMyArea();
         break;
+      case this.MY_WEATHER;
+        createMyWeather();
       default:
         console.log("BAD!");
     }
@@ -57,6 +59,10 @@ Block = (function() {
 
   Block.prototype.createMyLocation = function() {};
 
+  return Block;
+
+  Block.prototype.createMyWeather = function() {};
+    Block.info = "area";
   return Block;
 
 })();

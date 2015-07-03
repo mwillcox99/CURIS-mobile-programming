@@ -66,9 +66,9 @@ div {border-radius: 10px;}
 
 .draggable {
     position: absolute;
-    width: 60px;
+    width: 200px;
+    height: 200px;
     margin: 1em;
-    padding: 3em;
     background-color: #00D6D4;
     color: white;
     text-align: center;
@@ -86,3 +86,17 @@ div {border-radius: 10px;}
 .draggable.-drop-over {
     background-color: #CF2261;
 }
+
+
+.wi {
+    margin-top: 35px;
+    font-size: 130px;
+    text-align: center;
+    vertical-align: center;
+}
+
+#equal, #buzz {
+    font-size: 60px;
+}
+
+

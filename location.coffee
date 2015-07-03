@@ -165,7 +165,7 @@ $("#run").click ->
 	result = doIFTTT
 		firstBlock: MY_LOCATION
 		operator: IS_IN
-		secondBlock: WEATHER
+		secondBlock: MY_WEATHER
 	 #put in parameters
 
 	#if result then audio.play()

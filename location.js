@@ -181,6 +181,6 @@ $("#run").click(function() {
   return result = doIFTTT({
     firstBlock: MY_LOCATION,
     operator: IS_IN,
-    secondBlock: WEATHER
+    secondBlock: MY_WEATHER
   });
 });
